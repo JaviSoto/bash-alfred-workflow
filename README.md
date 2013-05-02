@@ -11,7 +11,7 @@ Alfred Workflow to run a bash command and see the output on the Alfred window
 
 ### Install
 
-Download [BashCommand.alfredworkflow](BashCommand.alfredworkflow)
+Download [BashCommand.alfredworkflow](https://github.com/JaviSoto/bash-alfred-workflow/raw/master/BashCommand.alfredworkflow)
 
 ### Usage
 
