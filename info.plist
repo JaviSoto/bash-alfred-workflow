@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.javisoto.bash-command</string>
+	<key>connections</key>
+	<dict>
+		<key>7D0614E7-2C90-4F5C-B9E6-9237DEC61EB9</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C2C3FC8E-C91E-466A-A6B2-98B5DECDF48F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Javier Soto</string>
+	<key>description</key>
+	<string>See the results of a bash command on Alfred</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Bash Command</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>C2C3FC8E-C91E-466A-A6B2-98B5DECDF48F</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>32</integer>
+				<key>keyword</key>
+				<string>cmd</string>
+				<key>runningsubtext</key>
+				<string>Executing...</string>
+				<key>script</key>
+				<string>require('workflows.php');
+$w = new Workflows();
+
+$resultLines = array();
+$returnCode = 0;
+exec('{query} 2&gt;&amp;1', &amp;$resultLines, &amp;$returnCode);
+
+if ($returnCode != 0)
+{
+	$w-&gt;result('na', 'na', "Error when executing \"{query}\"", "Return code: $returnCode", 'icon.png', 'no');
+}
+
+foreach ($resultLines as $line)
+{
+	$w-&gt;result('na', $line, $line, '', 'icon.png', 'yes');
+}
+
+echo $w-&gt;toxml();</string>
+				<key>title</key>
+				<string>command</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>7D0614E7-2C90-4F5C-B9E6-9237DEC61EB9</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>7D0614E7-2C90-4F5C-B9E6-9237DEC61EB9</key>
+		<dict>
+			<key>ypos</key>
+			<real>140</real>
+		</dict>
+		<key>C2C3FC8E-C91E-466A-A6B2-98B5DECDF48F</key>
+		<dict>
+			<key>ypos</key>
+			<real>140</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://github.com/JaviSoto/bash-alfred-workflow</string>
+</dict>
+</plist>
