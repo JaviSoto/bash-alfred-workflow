@@ -19,3 +19,6 @@ Simply type `cmd` and the bash command you want to run (see screenshots)
 
 ## Thanks to...
 I use the php script created by [@lrrfantasy](https://github.com/lrrfantasy) available here: https://github.com/lrrfantasy/alfred-feedback-xml-generation to create the output for Alfred to parse and display the results.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/JaviSoto/bash-alfred-workflow/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
